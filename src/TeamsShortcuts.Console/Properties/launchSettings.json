@@ -1,0 +1,20 @@
+{
+  "profiles": {
+    "TeamsMeetingControl - diagnose": {
+      "commandName": "Project",
+      "commandLineArgs": "diagnose --verbose"
+    },
+    "TeamsMeetingControl - diagnose deep": {
+      "commandName": "Project",
+      "commandLineArgs": "diagnose --verbose --deep"
+    },
+    "TeamsMeetingControl - hand": {
+      "commandName": "Project",
+      "commandLineArgs": "hand"
+    },
+    "TeamsMeetingControl - react laugh": {
+      "commandName": "Project",
+      "commandLineArgs": "react laugh"
+    }
+  }
+}

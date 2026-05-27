@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="src/TeamsShortcuts.Core/TeamsShortcuts.Core.csproj" />
+  <Project Path="src/TeamsShortcuts.Console/TeamsShortcuts.Console.csproj" />
+  <Project Path="streamdeck/TeamsShortcuts/TeamsShortcuts.StreamDeck.csproj" />
+  <Project Path="tests/TeamsShortcuts.Core.Tests/TeamsShortcuts.Core.Tests.csproj" />
+</Solution>

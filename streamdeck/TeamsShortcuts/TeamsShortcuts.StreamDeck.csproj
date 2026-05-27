@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PlatformTarget>x64</PlatformTarget>
+    <Platforms>x64</Platforms>
+    <AssemblyName>TeamsShortcuts.StreamDeck</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StreamDeck-Tools" Version="7.0.0" />
+    <ProjectReference Include="..\..\src\TeamsShortcuts.Core\TeamsShortcuts.Core.csproj" />
+  </ItemGroup>
+</Project>

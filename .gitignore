@@ -1,0 +1,30 @@
+# Build output
+bin/
+obj/
+publish/
+TestResults/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.rsuser
+
+# Stream Deck generated package/output
+*.streamDeckPlugin
+streamdeck/**/bin/
+streamdeck/**/obj/
+streamdeck/**/*.log
+streamdeck/**/*.pdb
+streamdeck/**/*.dll
+streamdeck/**/*.exe
+streamdeck/**/*.deps.json
+streamdeck/**/*.runtimeconfig.json
+
+# Local tools and OS noise
+.idea/
+.vscode/
+*.tmp
+*.bak
+Thumbs.db
+Desktop.ini

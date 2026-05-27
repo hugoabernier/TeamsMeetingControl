@@ -1,0 +1,97 @@
+name: Build Teams Shortcuts plugin
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Plugin version, for example 0.1.0"
+        required: false
+        default: "0.1.0"
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set version
+        shell: pwsh
+        run: |
+          if ("${{ github.event_name }}" -eq "workflow_dispatch") {
+            $version = "${{ github.event.inputs.version }}"
+          } else {
+            $version = "${{ github.ref_name }}".TrimStart("v")
+          }
+
+          if ([string]::IsNullOrWhiteSpace($version)) {
+            $version = "0.1.0"
+          }
+
+          if ($version -notmatch '^\d+\.\d+\.\d+(\.\d+)?$') {
+            throw "Version must use numeric version format, for example 0.1.2 or 0.1.2.0."
+          }
+
+          "PLUGIN_VERSION=$version" | Out-File -FilePath $env:GITHUB_ENV -Append
+          "RELEASE_TAG=v$version" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24.x"
+
+      - name: Install Stream Deck CLI
+        run: npm install -g @elgato/cli
+
+      - name: Build
+        run: dotnet build .\TeamsMeetingControl.sln -c Release -p:Platform=x64
+
+      - name: Test
+        run: dotnet test .\tests\TeamsShortcuts.Core.Tests\TeamsShortcuts.Core.Tests.csproj -c Release -p:Platform=x64 --no-build
+
+      - name: Package plugin
+        shell: pwsh
+        run: .\scripts\package-plugin.ps1 -Version $env:PLUGIN_VERSION -Clean
+
+      - name: Validate plugin
+        run: streamdeck validate .\streamdeck\TeamsShortcuts\net.timerinator.teams-shortcuts.sdPlugin
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: net.timerinator.teams-shortcuts.streamDeckPlugin
+          path: artifacts/releases/net.timerinator.teams-shortcuts.streamDeckPlugin
+
+      - name: Publish GitHub release
+        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ("${{ github.event_name }}" -eq "workflow_dispatch") {
+            $tag = $env:RELEASE_TAG
+          }
+          else {
+            $tag = "${{ github.ref_name }}"
+          }
+
+          $asset = "artifacts\releases\net.timerinator.teams-shortcuts.streamDeckPlugin"
+
+          if (gh release view $tag *> $null) {
+            gh release upload $tag $asset --clobber
+          }
+          else {
+            gh release create $tag $asset --title $tag --generate-notes
+          }

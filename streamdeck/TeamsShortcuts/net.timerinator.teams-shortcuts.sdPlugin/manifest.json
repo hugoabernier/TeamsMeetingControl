@@ -1,0 +1,205 @@
+{
+  "$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+  "Actions": [
+    {
+      "Icon": "Images/mute",
+      "Name": "Mute",
+      "States": [
+        {
+          "Image": "Images/mute",
+          "Title": "Mute",
+          "TitleAlignment": "middle",
+          "FontSize": 16
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Toggle Teams mute using Ctrl+Shift+M.",
+      "UUID": "net.timerinator.teams-shortcuts.mute"
+    },
+    {
+      "Icon": "Images/camera",
+      "Name": "Camera",
+      "States": [
+        {
+          "Image": "Images/camera",
+          "Title": "Camera",
+          "TitleAlignment": "middle",
+          "FontSize": 16
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Toggle Teams camera using Ctrl+Shift+O.",
+      "UUID": "net.timerinator.teams-shortcuts.camera"
+    },
+    {
+      "Icon": "Images/share",
+      "Name": "Share",
+      "States": [
+        {
+          "Image": "Images/share",
+          "Title": "Share",
+          "TitleAlignment": "middle",
+          "FontSize": 16
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Open Teams share controls using Ctrl+Shift+E.",
+      "UUID": "net.timerinator.teams-shortcuts.share"
+    },
+    {
+      "Icon": "Images/hand",
+      "Name": "Raise",
+      "States": [
+        {
+          "Image": "Images/hand",
+          "Title": "Raise",
+          "TitleAlignment": "middle",
+          "FontSize": 16
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Raise or lower your Teams hand using Ctrl+Shift+K.",
+      "UUID": "net.timerinator.teams-shortcuts.hand"
+    },
+    {
+      "Icon": "Images/captions",
+      "Name": "Captions",
+      "States": [
+        {
+          "Image": "Images/captions",
+          "Title": "Captions",
+          "TitleAlignment": "middle",
+          "FontSize": 15
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Toggle Teams live captions using Ctrl+Shift+A.",
+      "UUID": "net.timerinator.teams-shortcuts.captions"
+    },
+    {
+      "Icon": "Images/talk",
+      "Name": "Hold Talk",
+      "States": [
+        {
+          "Image": "Images/talk",
+          "Title": "Hold\nTalk",
+          "TitleAlignment": "middle",
+          "FontSize": 15
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "Tooltip": "Hold Ctrl+Spacebar for Teams temporary unmute.",
+      "UUID": "net.timerinator.teams-shortcuts.push-to-talk"
+    },
+    {
+      "Icon": "Images/leave",
+      "Name": "Leave",
+      "States": [
+        {
+          "Image": "Images/leave",
+          "Title": "Leave",
+          "TitleAlignment": "middle",
+          "FontSize": 16
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "Tooltip": "Press twice to leave or end the Teams meeting using Ctrl+Shift+H.",
+      "UUID": "net.timerinator.teams-shortcuts.leave"
+    },
+    {
+      "Icon": "Images/react-like",
+      "Name": "Like",
+      "States": [
+        {
+          "Image": "Images/react-like",
+          "Title": "Like",
+          "TitleAlignment": "middle",
+          "FontSize": 16
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Send a Teams like reaction.",
+      "UUID": "net.timerinator.teams-shortcuts.react-like"
+    },
+    {
+      "Icon": "Images/react-love",
+      "Name": "Love",
+      "States": [
+        {
+          "Image": "Images/react-love",
+          "Title": "Love",
+          "TitleAlignment": "middle",
+          "FontSize": 16
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Send a Teams love reaction.",
+      "UUID": "net.timerinator.teams-shortcuts.react-love"
+    },
+    {
+      "Icon": "Images/react-laugh",
+      "Name": "Laugh",
+      "States": [
+        {
+          "Image": "Images/react-laugh",
+          "Title": "Laugh",
+          "TitleAlignment": "middle",
+          "FontSize": 16
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Send a Teams laugh reaction.",
+      "UUID": "net.timerinator.teams-shortcuts.react-laugh"
+    },
+    {
+      "Icon": "Images/react-surprised",
+      "Name": "Surprised",
+      "States": [
+        {
+          "Image": "Images/react-surprised",
+          "Title": "Wow",
+          "TitleAlignment": "middle",
+          "FontSize": 16
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Send a Teams surprised reaction.",
+      "UUID": "net.timerinator.teams-shortcuts.react-surprised"
+    },
+    {
+      "Icon": "Images/react-applause",
+      "Name": "Applaud",
+      "States": [
+        {
+          "Image": "Images/react-applause",
+          "Title": "Applaud",
+          "TitleAlignment": "middle",
+          "FontSize": 14
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Send a Teams applause reaction.",
+      "UUID": "net.timerinator.teams-shortcuts.react-applause"
+    }
+  ],
+  "Author": "Hugo Bernier",
+  "Description": "Teams Shortcuts: keyboard shortcut controls for Microsoft Teams meetings. No Teams API or state integration.",
+  "Name": "Teams Shortcuts",
+  "Icon": "Images/pluginIcon",
+  "URL": "https://github.com/hugoabernier",
+  "Version": "0.1.0.0",
+  "CodePath": "TeamsShortcuts.StreamDeck.exe",
+  "Category": "Teams Shortcuts",
+  "CategoryIcon": "Images/pluginIcon",
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "SDKVersion": 2,
+  "Software": {
+    "MinimumVersion": "6.4"
+  },
+  "UUID": "net.timerinator.teams-shortcuts"
+}
